@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEE WATANA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Контейнер для IMG_8780.jpg -->
+    <div class="overlay-container">
+        <span class="background-text">LEE</span>
+    </div>
+
+    <!-- Навигация -->
+    <div class="menu">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#portfolio">PROFILE</a>
+            <a href="#contac">SHITSMELL</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </div>
+
+    <!-- Главная страница -->
+    <section id="home" class="section home">
+        <h1>LEE WATANA</h1>
+    </section>
+
+    <!-- Портфолио -->
+    <section id="portfolio" class="section portfolio">
+        <div class="gallery">
+            <div class="photo" data-collection="wee">
+                <img src="gothh.jpg" alt="Wee v1 Collection">
+                <span>wee v1</span>
+            </div>
+            <div class="photo" data-collection="grime">
+                <img src="ng4-—-OUT.webp" alt="Grime v1 Collection">
+                <span>grime v1</span>
+            </div>
+            <div class="photo1" data-collection="soon1">
+                <img src="FFFF-Photoroom.png" alt="Coming Soon">
+                <span>SOON</span>
+            </div>
+        </div>
+
+        <!-- Контейнеры для коллекций -->
+        <div class="collection-container" id="wee" style="display: none;">
+            <h2>Wee v1</h2>
+            <div class="collection-gallery">
+                <div class="photo">
+                    <img src="DSCN0437.jpg" alt="Photo 1">
+                </div>
+                <div class="photo">
+                    <img src="DSCN0431.webp" alt="Photo 2">
+                </div>
+                <div class="photo">
+                    <img src="IMG_8780.jpg" alt="Photo 3">
+                </div>
+            </div>
+            <button class="close-collection">Close</button>
+        </div>
+
+        <div class="collection-container" id="grime" style="display: none;">
+            <h2>Grime v1</h2>
+            <div class="collection-gallery">
+                <div class="photo">
+                    <img src="ng4.webp" alt="Photo 1">
+                </div>
+                <div class="photo">
+                    <img src="rrt1.webp" alt="Photo 2">
+                </div>
+                <div class="photo">
+                    <img src="ka5.webp" alt="Photo 3">
+                </div>
+            </div>
+            <button class="close-collection">Close</button>
+        </div>
+
+        <div class="collection-container" id="soon1" style="display: none;">
+            <h2>Coming Soon</h2>
+            <p>Эта коллекция скоро будет доступна.</p>
+            <button class="close-collection">Close</button>
+        </div>
+    </section>
+
+    <section id="contac" class="section contact">
+        <p class="newslve-frame">NEWSLVE</p>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="section contact">
+        <span class="red-plus"></span> <!-- Тёмно-красный плюс -->
+        <p>URSLVE</p>
+        <p>LIBIDOTEMPLE — THE MOST FAVORITE PLACE OF HORMONAL MONSTERS. THEY LIVE IN THEIR DENS, LOCATED ON HIGH ROCKS (THE RICHEST LIVE CLOSER TO THE EARTH) AND BEAT THE WHAC-A-MOLE WITH THEIR LITTLE FISTS, IN THE HOPE OF ASCENDING AND CLEARING THEIR CONSCIOUSNESS.
+            MOLES COME TO THE DENS THROUGH SPECIAL HOLES AND ONLY WHEN THE HORMONAL MONSTER ALLOCATES ITS YES INTO THE GREAT SUBPLANETARY TUNNEL NETWORK</p>
+    </section>
+
+    <section class="contact">
+        <h2>NNN</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        // Открытие коллекции
+        document.querySelectorAll('.photo, .photo1').forEach(item => {
+            item.addEventListener('click', function() {
+                const collectionId = this.getAttribute('data-collection');
+                const collection = document.getElementById(collectionId);
+                document.querySelectorAll('.collection-container').forEach(container => {
+                    container.style.display = 'none';
+                });
+                collection.style.display = 'block';
+                document.querySelector('.gallery').style.display = 'none';
+            });
+        });
+
+        // Закрытие коллекции
+        document.querySelectorAll('.close-collection').forEach(button => {
+            button.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+                document.querySelector('.gallery').style.display = 'grid';
+            });
+        });
+    </script>
+</body>
+</html>
